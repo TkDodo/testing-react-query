@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { rest } from "msw";
+import { rest } from "msw"
 import * as React from 'react'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
@@ -12,10 +12,10 @@ export const handlers = [
                 ctx.json({
                     name: "mocked-react-query"
                 })
-            );
+            )
         }
     )
-];
+]
 
 const testQueryClient = new QueryClient({
     defaultOptions: {
@@ -24,7 +24,6 @@ const testQueryClient = new QueryClient({
         },
     },
 })
-
 
 export function renderWithClient(ui: React.ReactElement) {
     const { rerender, ...result } = render(
