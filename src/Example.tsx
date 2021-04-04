@@ -1,11 +1,11 @@
-import * as React from "react";
-import { useQuery } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
+import * as React from 'react';
+import { useQuery } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 export function Example() {
-    const { isLoading, error, data, isFetching } = useQuery("repoData", () =>
+    const { isLoading, error, data, isFetching } = useQuery('repoData', () =>
         fetch(
-            "https://api.github.com/repos/tannerlinsley/react-query"
+            'https://api.github.com/repos/tannerlinsley/react-query'
         ).then((res) => res.json())
     );
 
@@ -17,8 +17,8 @@ export function Example() {
     return (
         <div>
             <h1>name: {data.name}</h1>
-            <div>{isFetching ? "Updating..." : ""}</div>
+            <div>{isFetching ? 'Updating...' : ''}</div>
             <ReactQueryDevtools initialIsOpen />
         </div>
-    );
+    )
 }

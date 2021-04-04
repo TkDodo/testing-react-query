@@ -1,8 +1,8 @@
-import { QueryClient, QueryClientProvider, useQuery } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
 import { Example } from './Example'
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient()
 
 function App() {
     return (
@@ -13,4 +13,4 @@ function App() {
     );
 }
 
-export default App;
+export default App
