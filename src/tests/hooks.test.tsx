@@ -5,28 +5,30 @@ import { server } from '../setupTests'
 import { createWrapper } from './utils'
 import { useRepoData } from '../hooks'
 
-test('successful query hook', async () => {
-    const { result, waitFor } = renderHook(() => useRepoData(), {
-        wrapper: createWrapper()
-    })
-
-    await waitFor(() => result.current.isSuccess)
-
-    expect(result.current.data?.name).toBe('mocked-react-query')
-})
-
-test('failure query hook', async () => {
-    server.use(
-        rest.get('*', (req, res, ctx) => {
-            return res(ctx.status(500))
+describe('query hook', () => {
+    test('successful query hook', async () => {
+        const { result, waitFor } = renderHook(() => useRepoData(), {
+            wrapper: createWrapper()
         })
-    )
 
-    const { result, waitFor } = renderHook(() => useRepoData(), {
-        wrapper: createWrapper()
+        await waitFor(() => result.current.isSuccess)
+
+        expect(result.current.data?.name).toBe('mocked-react-query')
     })
 
-    await waitFor(() => result.current.isError)
+    test('failure query hook', async () => {
+        server.use(
+            rest.get('*', (req, res, ctx) => {
+                return res(ctx.status(500))
+            })
+        )
 
-    expect(result.current.error).toBeDefined()
+        const { result, waitFor } = renderHook(() => useRepoData(), {
+            wrapper: createWrapper()
+        })
+
+        await waitFor(() => result.current.isError)
+
+        expect(result.current.error).toBeDefined()
+    })
 })

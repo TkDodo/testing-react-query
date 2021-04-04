@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 
 export const handlers = [
     rest.get(
-        'https://api.github.com/repos/tannerlinsley/react-query',
+        '*/react-query',
         (req, res, ctx) => {
             return res(
                 ctx.status(200),
