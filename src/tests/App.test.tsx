@@ -8,7 +8,7 @@ describe('query component', () => {
     test('successful query component', async () => {
         const result = renderWithClient(<Example />)
 
-        expect(await result.findByText(/mocked-react-query/i)).toBeInTheDocument();
+        expect(await result.findByText(/mocked-react-query/i)).toBeInTheDocument()
     })
 
     test('failure query component', async () => {
@@ -20,6 +20,6 @@ describe('query component', () => {
 
         const result = renderWithClient(<Example />)
 
-        expect(await result.findByText(/an error has occurred/i)).toBeInTheDocument();
+        expect(await result.findByText(/an error has occurred/i)).toBeInTheDocument()
     })
 })
