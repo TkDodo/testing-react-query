@@ -23,6 +23,11 @@ const createTestQueryClient = () => new QueryClient({
             retry: false,
         },
     },
+    logger: {
+        log: console.log,
+        warn: console.warn,
+        error: () => {},
+    }
 })
 
 export function renderWithClient(ui: React.ReactElement) {

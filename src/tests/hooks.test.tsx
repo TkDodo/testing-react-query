@@ -1,17 +1,17 @@
 import { rest } from 'msw'
 import * as React from 'react'
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook, act, waitFor } from '@testing-library/react'
 import { server } from '../setupTests'
 import { createWrapper } from './utils'
 import { useRepoData } from '../hooks'
 
 describe('query hook', () => {
     test('successful query hook', async () => {
-        const { result, waitFor } = renderHook(() => useRepoData(), {
+        const { result } = renderHook(() => useRepoData(), {
             wrapper: createWrapper()
         })
 
-        await waitFor(() => result.current.isSuccess)
+        await waitFor(() => expect(result.current.isSuccess).toBe(true))
 
         expect(result.current.data?.name).toBe('mocked-react-query')
     })
@@ -23,11 +23,11 @@ describe('query hook', () => {
             })
         )
 
-        const { result, waitFor } = renderHook(() => useRepoData(), {
+        const { result } = renderHook(() => useRepoData(), {
             wrapper: createWrapper()
         })
 
-        await waitFor(() => result.current.isError)
+        await waitFor(() => expect(result.current.isError).toBe(true))
 
         expect(result.current.error).toBeDefined()
     })

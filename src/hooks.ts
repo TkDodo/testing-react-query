@@ -7,5 +7,5 @@ const fetchRepoData = (): Promise<{ name: string }> =>
         .then((response) => response.data)
 
 export function useRepoData() {
-    return useQuery('repoData', fetchRepoData)
+    return useQuery(['repoData'], fetchRepoData)
 }
