@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { rest } from 'msw'
 import * as React from 'react'
-import { QueryClient, QueryClientProvider } from 'react-query'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 export const handlers = [
     rest.get(

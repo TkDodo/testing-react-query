@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { ReactQueryDevtools } from 'react-query/devtools';
 import { useRepoData } from './hooks'
 
 export function Example() {
@@ -14,7 +13,6 @@ export function Example() {
         <div>
             <h1>name: {data?.name}</h1>
             <div>{isFetching ? 'Updating...' : ''}</div>
-            <ReactQueryDevtools initialIsOpen />
         </div>
     )
 }

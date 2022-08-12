@@ -1,6 +1,6 @@
 import { rest } from 'msw'
 import * as React from 'react'
-import { renderHook, act, waitFor } from '@testing-library/react'
+import { renderHook, waitFor } from '@testing-library/react'
 import { server } from '../setupTests'
 import { createWrapper } from './utils'
 import { useRepoData } from '../hooks'

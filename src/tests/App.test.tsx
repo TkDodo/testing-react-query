@@ -1,4 +1,3 @@
-import { waitFor } from '@testing-library/react'
 import { rest } from 'msw'
 import { renderWithClient } from './utils'
 import { server } from '../setupTests'
