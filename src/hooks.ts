@@ -1,11 +1,13 @@
-import axios from 'axios'
-import { useQuery } from '@tanstack/react-query'
+import { useQuery } from "@tanstack/react-query";
 
 const fetchRepoData = (): Promise<{ name: string }> =>
-    axios
-        .get('https://api.github.com/repos/tannerlinsley/react-query')
-        .then((response) => response.data)
+  fetch("https://api.github.com/repos/tannerlinsley/react-query")
+    .then((response) => response.json())
+    .then((data) => data);
 
 export function useRepoData() {
-    return useQuery(['repoData'], fetchRepoData)
+  return useQuery({
+    queryKey: ["repoData"],
+    queryFn: fetchRepoData,
+  });
 }
